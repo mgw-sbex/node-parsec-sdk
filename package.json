@@ -1,0 +1,38 @@
+{
+  "name": "parsec-sdk",
+  "version": "0.1.0",
+  "description": "UNOFFICIAL Parsec remote desktop SDK for JavaScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maciejpedzich/node-parsec-sdk.git"
+  },
+  "keywords": [
+    "cloud",
+    "gaming",
+    "remote",
+    "low-latency",
+    "remote-desktop",
+    "parsec",
+    "cloud-gaming",
+    "game-streaming",
+    "remote-gaming-server",
+    "parsec-cloud"
+  ],
+  "author": "Maciej Pędzich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maciejpedzich/node-parsec-sdk/issues"
+  },
+  "homepage": "https://github.com/maciejpedzich/node-parsec-sdk#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/webrtc": "^0.0.30",
+    "typescript": "^4.4.4"
+  }
+}
