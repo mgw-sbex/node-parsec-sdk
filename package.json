@@ -1,6 +1,6 @@
 {
   "name": "parsec-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "UNOFFICIAL Parsec remote desktop SDK for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

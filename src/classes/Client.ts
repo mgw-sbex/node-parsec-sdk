@@ -14,7 +14,7 @@ export class Client {
 
   public peerID?: string;
 
-  public async connect(email: string, password: string, tfa?: string) {
+  public async authPersonal(email: string, password: string, tfa?: string) {
     try {
       if (this.sessionID && this.peerID && this.status === Status.PARSEC_OK) {
         return;

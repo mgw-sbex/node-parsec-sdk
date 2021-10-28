@@ -1,11 +1,11 @@
 import MockAdapter from 'axios-mock-adapter';
-import { httpClient } from '../src/utils/httpClient';
+import { httpClient } from '../../src/utils/httpClient';
 
-import { Client } from '../src/classes/Client';
-import { Status } from '../src/enums/Status';
+import { Client } from '../../src/classes/Client';
+import { Status } from '../../src/enums/Status';
 
-import { InvalidCredentialsError } from '../src/errors/InvalidCredentials';
-import { TFARequiredError } from '../src/errors/TFARequired';
+import { InvalidCredentialsError } from '../../src/errors/InvalidCredentials';
+import { TFARequiredError } from '../../src/errors/TFARequired';
 
 const client = new Client();
 const mockAxios = new MockAdapter(httpClient);
@@ -24,10 +24,10 @@ mockAxios
     session_id: 'xyz456'
   });
 
-describe('Parsec client', () => {
-  it('should throw InvalidCredentialsError and set error status if connect was called with wrong email/password', async () => {
+describe("Parsec client's authPersonal method", () => {
+  it('should throw InvalidCredentialsError and set error status if called with wrong email/password', async () => {
     try {
-      const clientConnectPromise = client.connect(
+      const clientConnectPromise = client.authPersonal(
         'invalid@example.com',
         'Invalid_passw0rd'
       );
@@ -38,9 +38,9 @@ describe('Parsec client', () => {
     }
   });
 
-  it('should throw TFARequiredError and set error status if connect was called with valid credentials, but no TFA code', async () => {
+  it('should throw TFARequiredError and set error status if called with valid credentials, but no TFA code', async () => {
     try {
-      const clientConnectPromise = client.connect(
+      const clientConnectPromise = client.authPersonal(
         'john.doe@example.com',
         'Password123!'
       );
@@ -52,9 +52,13 @@ describe('Parsec client', () => {
     }
   });
 
-  it('should set peer and host IDs and OK status if connect was called with valid credentials and TFA code', async () => {
+  it('should set peer and host IDs and OK status if called with valid credentials and TFA code', async () => {
     try {
-      await client.connect('john.doe@example.com', 'Password123!', '069420');
+      await client.authPersonal(
+        'john.doe@example.com',
+        'Password123!',
+        '069420'
+      );
 
       expect(client.peerID).not.toBeUndefined();
       expect(client.sessionID).not.toBeUndefined();
@@ -64,13 +68,17 @@ describe('Parsec client', () => {
     }
   });
 
-  it('should do nothing if connect is called, but session and peer IDs and OK status are set', async () => {
+  it('should do nothing if called when session and peer IDs and OK status are set', async () => {
     try {
       const peerIDBeforeConnect = client.peerID;
       const sessionIDBeforeConnect = client.sessionID;
       const statusBeforeConnect = client.status;
 
-      await client.connect('john.doe@example.com', 'Password123!', '069420');
+      await client.authPersonal(
+        'john.doe@example.com',
+        'Password123!',
+        '069420'
+      );
 
       expect(client.peerID).toEqual(peerIDBeforeConnect);
       expect(client.sessionID).toEqual(sessionIDBeforeConnect);
