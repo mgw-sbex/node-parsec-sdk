@@ -70,9 +70,9 @@ describe("Parsec client's authPersonal method", () => {
 
   it('should do nothing if called when session and peer IDs and OK status are set', async () => {
     try {
-      const peerIDBeforeConnect = client.peerID;
-      const sessionIDBeforeConnect = client.sessionID;
-      const statusBeforeConnect = client.status;
+      const peerIDBeforeAuthCall = client.peerID;
+      const sessionIDBeforeAuthCall = client.sessionID;
+      const statusBeforeAuthCall = client.status;
 
       await client.authPersonal(
         'john.doe@example.com',
@@ -80,9 +80,9 @@ describe("Parsec client's authPersonal method", () => {
         '069420'
       );
 
-      expect(client.peerID).toEqual(peerIDBeforeConnect);
-      expect(client.sessionID).toEqual(sessionIDBeforeConnect);
-      expect(client.status).toEqual(statusBeforeConnect);
+      expect(client.peerID).toEqual(peerIDBeforeAuthCall);
+      expect(client.sessionID).toEqual(sessionIDBeforeAuthCall);
+      expect(client.status).toEqual(statusBeforeAuthCall);
     } catch (error) {
       console.error(error);
     }
