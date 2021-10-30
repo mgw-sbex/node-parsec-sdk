@@ -39,7 +39,8 @@
   },
   "homepage": "https://github.com/maciejpedzich/node-parsec-sdk#readme",
   "files": [
-    "dist/*"
+    "dist/*",
+    "tsconfig.json"
   ],
   "devDependencies": {
     "@types/jest": "^27.0.2",
