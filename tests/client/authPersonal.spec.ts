@@ -27,11 +27,7 @@ mockAxios
 describe("Parsec client's authPersonal method", () => {
   it('should throw InvalidCredentialsError and set error status if called with wrong email/password', async () => {
     try {
-      const clientConnectPromise = client.authPersonal(
-        'invalid@example.com',
-        'Invalid_passw0rd'
-      );
-      await clientConnectPromise;
+      await client.authPersonal('invalid@example.com', 'Invalid_passw0rd');
     } catch (error) {
       expect(error).toBeInstanceOf(InvalidCredentialsError);
       expect(client.status).toEqual(Status.ERR_DEFAULT);
@@ -40,12 +36,7 @@ describe("Parsec client's authPersonal method", () => {
 
   it('should throw TFARequiredError and set error status if called with valid credentials, but no TFA code', async () => {
     try {
-      const clientConnectPromise = client.authPersonal(
-        'john.doe@example.com',
-        'Password123!'
-      );
-
-      await clientConnectPromise;
+      await client.authPersonal('john.doe@example.com', 'Password123!');
     } catch (error) {
       expect(error).toBeInstanceOf(TFARequiredError);
       expect(client.status).toEqual(Status.ERR_DEFAULT);
@@ -85,6 +76,26 @@ describe("Parsec client's authPersonal method", () => {
       expect(client.status).toEqual(statusBeforeAuthCall);
     } catch (error) {
       console.error(error);
+    }
+  });
+
+  it('should throw any other error caught during execution', async () => {
+    try {
+      // Reset client's data and status
+      client.peerID = undefined;
+      client.sessionID = undefined;
+      client.status = Status.PARSEC_NOT_RUNNING;
+
+      // Throws an error because we haven't defined 4th mockAxios response
+      await client.authPersonal(
+        'john.doe@example.com',
+        'Password123!',
+        '069420'
+      );
+    } catch (error) {
+      expect(error).not.toBeInstanceOf(InvalidCredentialsError);
+      expect(error).not.toBeInstanceOf(TFARequiredError);
+      expect(client.status).toEqual(Status.ERR_DEFAULT);
     }
   });
 });
