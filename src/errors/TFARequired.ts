@@ -1,3 +1,6 @@
+/**
+ * Error thrown if TFA code is required to authenticate with _personal_ strategy
+ */
 export class TFARequiredError extends Error {
   tfaType: string;
 

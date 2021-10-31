@@ -1,3 +1,4 @@
+/** @internal */
 export interface AuthSuccessBody {
   instance_id: string;
   user_id: number;

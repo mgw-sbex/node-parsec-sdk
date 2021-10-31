@@ -1,3 +1,7 @@
+/**
+ * Parsec client's status codes
+ * @enum
+ */
 export enum Status {
   PARSEC_OK = 0,
   PARSEC_NOT_RUNNING = -3,

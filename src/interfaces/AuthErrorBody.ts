@@ -1,3 +1,4 @@
+/** @internal */
 export interface AuthErrorBody {
   error: string;
   tfa_required?: boolean;

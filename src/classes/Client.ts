@@ -14,6 +14,13 @@ export class Client {
 
   public peerID?: string;
 
+  /**
+   * Authenticate client using the _personal_ strategy
+   *
+   * @param  {string} email Parsec account's email
+   * @param  {string} password Parsec account's password
+   * @param  {string} [tfa] TFA code
+   */
   public async authPersonal(email: string, password: string, tfa?: string) {
     try {
       if (this.sessionID && this.peerID && this.status === Status.PARSEC_OK) {
