@@ -1,5 +1,7 @@
 name: Documentation website
-on: workflow_dispatch
+on:
+  release:
+    types: [prereleased, released]
 jobs:
   typedoc-and-deploy:
     name: Run Typedoc and deploy
