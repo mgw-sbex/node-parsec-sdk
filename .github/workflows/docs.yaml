@@ -1,7 +1,7 @@
 name: Documentation website
 on:
   release:
-    types: [prereleased, released]
+    types: [published]
 jobs:
   typedoc-and-deploy:
     name: Run Typedoc and deploy
