@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Fix accidentally publishing a codeless package via Github Actions workflow
+
 ## 0.1.2
 
 - Install and configure Typedoc for automatic online documentation generation
