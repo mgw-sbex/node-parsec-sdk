@@ -1,12 +1,15 @@
 {
   "name": "parsec-sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "UNOFFICIAL Parsec remote desktop SDK for JavaScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "jsdelivr": "dist/index.js",
+  "unpkg": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
     "build": "npx tsc",
+    "generate-docs": "npx typedoc",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint",
     "test": "jest"
@@ -20,6 +23,10 @@
     "type": "git",
     "url": "git+https://github.com/maciejpedzich/node-parsec-sdk.git"
   },
+  "files": [
+    "dist/*",
+    "tsconfig.json"
+  ],
   "keywords": [
     "cloud",
     "gaming",
@@ -37,11 +44,7 @@
   "bugs": {
     "url": "https://github.com/maciejpedzich/node-parsec-sdk/issues"
   },
-  "homepage": "https://github.com/maciejpedzich/node-parsec-sdk#readme",
-  "files": [
-    "dist/*",
-    "tsconfig.json"
-  ],
+  "homepage": "https://maciejpedzich.github.io/node-parsec-sdk/",
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
@@ -57,11 +60,10 @@
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.7",
     "ts-node-dev": "^1.1.8",
+    "typedoc": "^0.22.7",
     "typescript": "^4.4.4"
   },
   "dependencies": {
     "axios": "^0.24.0"
-  },
-  "jsdelivr": "dist/index.js",
-  "unpkg": "dist/index.js"
+  }
 }

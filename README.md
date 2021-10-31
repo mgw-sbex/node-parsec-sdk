@@ -1,10 +1,10 @@
 # node-parsec-sdk
 
-# DISCLAIMER
+## DISCLAIMER
 
 This is an **UNOFFICIAL** package, which is also very early in development. The vast majority of necessary features is missing at this point. See the _Roadmap_ project and issues on Github to get a list of upcoming functionalities.
 
-I **AM NOT** associated with Parsec or Unity in any way.
+**I AM NOT** associated with Parsec or Unity in any way.
 
 ## Installation
 
@@ -12,7 +12,11 @@ I **AM NOT** associated with Parsec or Unity in any way.
 npm install --save parsec-sdk
 ```
 
-## Example usage
+## Documentation
+
+Online documentation is generated using [Typedoc](https://typedoc.org/) and hosted on Github Pages. It's available here: [https://maciejpedzich.github.io/node-parsec-sdk/](https://maciejpedzich.github.io/node-parsec-sdk/)
+
+## Code example
 
 ```js
 // CommonJS (ES5)
@@ -66,6 +70,12 @@ npm run test
 
 ```
 npm run build
+```
+
+### Generating documentation website
+
+```
+npm run generate-docs
 ```
 
 ### License
