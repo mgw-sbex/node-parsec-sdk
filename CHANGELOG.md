@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Install and configure Typedoc for automatic online documentation generation
+
 ## 0.1.1
 
 - Rename `connect` method to `authPersonal`
