@@ -1,0 +1,6 @@
+{
+  "name": "node-parsec-sdk",
+  "includeVersion": true,
+  "entryPoints": ["src/index.ts"],
+  "out": "./docs"
+}
