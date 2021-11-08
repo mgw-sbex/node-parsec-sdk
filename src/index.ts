@@ -9,6 +9,7 @@ import { GetHostsPayload } from './interfaces/host/GetPayload';
 
 import { InvalidCredentialsError } from './errors/InvalidCredentials';
 import { TFARequiredError } from './errors/TFARequired';
+import { AuthRequiredError } from './errors/AuthRequired';
 
 export {
   Client,
@@ -18,5 +19,6 @@ export {
   GetHostsQueryParams,
   GetHostsPayload,
   InvalidCredentialsError,
-  TFARequiredError
+  TFARequiredError,
+  AuthRequiredError
 };

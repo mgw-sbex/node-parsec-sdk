@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Document and export `AuthRequiredError` class.
+
 ## 0.2.0
 
 - Add a `Client#getHosts` method for obtaining a list of hosts matching specified `mode` and `public` criteria
