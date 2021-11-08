@@ -1,5 +1,5 @@
 /** @internal */
-export interface AuthSuccessBody {
+export interface AuthPayload {
   instance_id: string;
   user_id: number;
   session_id: string;

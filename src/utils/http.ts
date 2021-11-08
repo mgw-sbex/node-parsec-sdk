@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 /** @internal */
-export const httpClient = axios.create({
+export const http = axios.create({
   baseURL: 'https://kessel-api.parsecgaming.com'
 });

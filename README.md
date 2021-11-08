@@ -1,5 +1,7 @@
 # node-parsec-sdk
 
+JavaScript and TypeScript SDK for Parsec remote desktop.
+
 ## DISCLAIMER
 
 This is an **UNOFFICIAL** package, which is also very early in development. The vast majority of necessary features is missing at this point. See the _Roadmap_ project and issues on Github to get a list of upcoming functionalities.
@@ -14,7 +16,7 @@ npm install --save parsec-sdk
 
 ## Documentation
 
-Online documentation is generated using [Typedoc](https://typedoc.org/) and hosted on Github Pages. It's available here: [https://maciejpedzich.github.io/node-parsec-sdk/](https://maciejpedzich.github.io/node-parsec-sdk/)
+Online documentation is automatically generated using [TypeDoc](https://typedoc.org/) and hosted on Github Pages. It's available on [https://maciejpedzich.github.io/node-parsec-sdk/](https://maciejpedzich.github.io/node-parsec-sdk/)
 
 ## Code example
 
@@ -27,13 +29,13 @@ import { Client } from 'parsec-sdk';
 
 const parsec = new Client();
 
-async function demo() {
+async function authDemo() {
   try {
-    await parsec.authPersonal(
-      'parsec-account-email@example.com',
-      'ParsecAccountP4ssword!',
-      '123456' // OPTIONAL 2FA code
-    );
+    await parsec.authPersonal({
+      email: 'parsec-account-email@example.com',
+      password: 'ParsecAccountP4ssword!',
+      tfa: '123456' // OPTIONAL TFA code
+    });
 
     console.log(`Peer ID: ${parsec.peerID}\nSession ID: ${parsec.sessionID}`);
   } catch (error) {
@@ -41,7 +43,18 @@ async function demo() {
   }
 }
 
-demo();
+async function hostsDemo() {
+  try {
+    const { data } = await parsec.getHosts({ mode: 'desktop' });
+
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+authDemo();
+hostsDemo();
 ```
 
 ## Development

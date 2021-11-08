@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Add a `Client#getHosts` method for obtaining a list of hosts matching specified `mode` and `public` criteria
+- Create `Host`, `GetHostsQueryParams`, `GetHostsPayload` interfaces
+- Rename `AuthSuccessBody` interface to `AuthPayload`
+- Change `Client#authPersonal` method, so that it takes a single `AuthPersonalCredentials` object argument, instead of three separate `email`, `password` and `tfa` strings
+
 ## 0.1.3
 
 - Fix accidentally publishing a codeless package via Github Actions workflow
