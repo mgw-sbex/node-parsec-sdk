@@ -8,7 +8,7 @@ import { InvalidCredentialsError } from '../errors/InvalidCredentials';
 import { TFARequiredError } from '../errors/TFARequired';
 import { AuthRequiredError } from '../errors/AuthRequired';
 
-import { AuthPersonalCredentials } from 'src/interfaces/auth/PersonalCredentials';
+import { AuthPersonalCredentials } from '../interfaces/auth/PersonalCredentials';
 import { AuthErrorBody } from '../interfaces/auth/ErrorBody';
 import { AuthPayload } from '../interfaces/auth/Payload';
 

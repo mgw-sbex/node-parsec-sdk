@@ -1,13 +1,12 @@
 {
   "name": "parsec-sdk",
-  "version": "0.2.1",
-  "description": "UNOFFICIAL Parsec remote desktop SDK for JavaScript",
+  "version": "0.2.2",
+  "description": "UNOFFICIAL and WIP JavaScript/TypeScript SDK for Parsec remote desktop.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "jsdelivr": "dist/index.js",
   "unpkg": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev ./src/index.ts",
     "build": "npx tsc",
     "generate-docs": "npx typedoc",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",

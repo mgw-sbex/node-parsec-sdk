@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Fix broken `AuthPersonalCredentials` import
+
 ## 0.2.1
 
 - Document and export `AuthRequiredError` class.

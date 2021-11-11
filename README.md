@@ -1,6 +1,6 @@
 # node-parsec-sdk
 
-JavaScript and TypeScript SDK for Parsec remote desktop.
+UNOFFICIAL and WIP JavaScript/TypeScript SDK for Parsec remote desktop.
 
 ## DISCLAIMER
 
