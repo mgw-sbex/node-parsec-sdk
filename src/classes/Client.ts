@@ -22,6 +22,10 @@ export class Client {
 
   public peerID?: string;
 
+  private webrtcPeerConnection?: RTCPeerConnection;
+
+  private websocket!: WebSocket;
+
   /**
    * Authenticate client using the _personal_ strategy
    *
@@ -88,5 +92,37 @@ export class Client {
 
       throw new Error(httpErrorBody?.error || (error as Error).message);
     }
+  }
+  /**
+   * @param  {{htmlVideo:HTMLVideoElement;htmlAudio:HTMLAudioElement;secret?:string;}} config
+   */
+  public async connect(config: {
+    htmlVideo: HTMLVideoElement;
+    htmlAudio: HTMLAudioElement;
+    secret?: string;
+  }) {
+    if (!this.sessionID) {
+      throw new AuthRequiredError();
+    }
+
+    this.websocket = new WebSocket(
+      `wss://kessel-ws.parsecgaming.com:443/?session_id=${this.sessionID}&role=client&version=1&sdk_version=0`
+    );
+
+    this.websocket.onclose;
+
+    this.webrtcPeerConnection = new RTCPeerConnection({
+      iceServers: [{ urls: 'stun:stun.parsec.gg:3478' }]
+    });
+
+    this.webrtcPeerConnection.onicecandidate = ({ candidate }) => {
+      const iceCandidateData = candidate?.candidate
+        ?.replace('candidate:', '')
+        .split(' ');
+
+      if (iceCandidateData && iceCandidateData.length >= 8) {
+        const protocol = iceCandidateData[2].toLowerCase();
+      }
+    };
   }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- This is a bogus release only to test if package publishing still works
+
 ## 0.2.2
 
 - Fix broken `AuthPersonalCredentials` import

@@ -1,6 +1,6 @@
 {
   "name": "parsec-sdk",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "UNOFFICIAL and WIP JavaScript/TypeScript SDK for Parsec remote desktop.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
